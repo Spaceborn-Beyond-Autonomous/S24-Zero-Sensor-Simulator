@@ -1,0 +1,13 @@
+battery_sim
+
+build/
+
+*.o
+
+*.out
+
+*.log
+
+.vscode/
+
+.idea/
