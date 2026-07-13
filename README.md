@@ -2,32 +2,31 @@
 
 ## Overview
 
-The **S24 - Zero Sensor Simulator** is a Layer-1 infrastructure module designed to provide dummy sensor interfaces for early software bring-up, testing, and Continuous Integration (CI).
+The **S24 - Zero Sensor Simulator** is a Layer-1 infrastructure module developed to provide dummy sensor interfaces for software bring-up, integration testing, and Continuous Integration (CI) workflows.
 
-This simulator allows higher-level software such as the Autopilot, Telemetry Pipeline, and Mission Software to boot successfully without requiring real hardware sensors.
+The simulator enables higher-level software components—including the Control Stack, Autopilot, Telemetry Pipeline, and Mission Software—to initialize and operate without requiring physical hardware during the early stages of development.
 
-## Current Module
+## Features
+
+* Dummy Battery Interface
+* Extensible sensor simulation architecture
+* Software bring-up support
+* Continuous Integration (CI) testing support
+* Modular C++ design for future sensor expansion
+
+## Current Modules
 
 ### Battery Simulator
 
-The Battery Simulator provides baseline battery information using fixed dummy values.
+The Battery Simulator provides baseline battery telemetry using predefined values for software validation and system initialization.
 
-Current outputs:
+Available metrics:
 
 * Voltage
 * State of Charge (SoC)
 * Temperature
 
-These values allow downstream software to detect a valid battery interface during initialization.
-
-## Current Status
-
-* ✅ Battery Simulator implemented
-* ✅ Dummy battery metrics available
-* ⏳ Logging module (In Progress)
-* ⏳ Bring-up validation logs
-* ⏳ Documentation
-* ⏳ CI integration
+These outputs allow dependent software modules to detect and interact with a simulated battery interface during development and testing.
 
 ## Project Structure
 
@@ -38,39 +37,48 @@ S24-Zero-Sensor-Simulator/
 │   ├── BatterySimulator.hpp
 │   └── BatterySimulator.cpp
 │
+├── logger/
+│   ├── Logger.hpp
+│   └── Logger.cpp
+│
+├── logs/
+│
 ├── main.cpp
-├──.gitignore
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
 ## Build
 
 ```bash
-g++ main.cpp battery/BatterySimulator.cpp -o battery_sim
+g++ main.cpp battery/BatterySimulator.cpp logger/Logger.cpp -o battery_sim
 ```
 
-Run
+## Run
 
 ```bash
 ./battery_sim
 ```
 
-## Expected Output
+## Example Output
 
 ```text
+[2026-07-13 19:52:58] Battery : Battery initialized successfully.
 Battery initialized successfully.
 Voltage: 12.6 V
 State of Charge: 100 %
 Temperature: 25 C
 ```
 
-## Sprint Progress
+## Repository Guidelines
 
-Day 1 ✔ Completed
+* Follow the established project structure.
+* Keep modules independent and reusable.
+* Write clear and maintainable C++ code.
+* Test changes before creating a pull request.
+* Use descriptive commit messages following the project conventions.
 
-* Dummy Battery Interface
-* Baseline Voltage
-* Baseline State of Charge (SoC)
-* Baseline Temperature
+## License
 
-Future sprint tasks will include the logging engine, validation logs, documentation, and CI integration.
+This repository is maintained as part of the Spaceborn autonomous systems development program. Licensing and distribution are governed by the project maintainers.
+

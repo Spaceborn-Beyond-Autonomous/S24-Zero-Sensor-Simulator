@@ -1,13 +1,19 @@
+# Compiled executable
 battery_sim
 
+# Build directories
 build/
+cmake-build-*/
 
+# Object files
 *.o
 
+# Executables
 *.out
 
+# Log files
 *.log
 
+# IDE files
 .vscode/
-
 .idea/
