@@ -1,84 +1,153 @@
-# S24 - Zero Sensor Simulator
+# S24 Zero Sensor Simulator
 
 ## Overview
 
-The **S24 - Zero Sensor Simulator** is a Layer-1 infrastructure module developed to provide dummy sensor interfaces for software bring-up, integration testing, and Continuous Integration (CI) workflows.
+The **S24 Zero Sensor Simulator** is a ROS 2 Python package that provides dummy sensor data for early software development, testing, validation, and continuous integration without requiring real hardware.
 
-The simulator enables higher-level software components—including the Control Stack, Autopilot, Telemetry Pipeline, and Mission Software—to initialize and operate without requiring physical hardware during the early stages of development.
+This project is part of the Spaceborn Autonomous Systems software stack.
 
-## Features
+---
 
-* Dummy Battery Interface
-* Extensible sensor simulation architecture
-* Software bring-up support
-* Continuous Integration (CI) testing support
-* Modular C++ design for future sensor expansion
+## Current Implemented Module
 
-## Current Modules
+✅ Battery Simulator
 
-### Battery Simulator
+---
 
-The Battery Simulator provides baseline battery telemetry using predefined values for software validation and system initialization.
+## Planned Modules
 
-Available metrics:
+- IMU
+- GPS
+- LiDAR
+- Camera
+- Battery
 
-* Voltage
-* State of Charge (SoC)
-* Temperature
-
-These outputs allow dependent software modules to detect and interact with a simulated battery interface during development and testing.
+---
 
 ## Project Structure
 
-```text
+
 S24-Zero-Sensor-Simulator/
-│
-├── battery/
-│   ├── BatterySimulator.hpp
-│   └── BatterySimulator.cpp
-│
-├── logger/
-│   ├── Logger.hpp
-│   └── Logger.cpp
-│
+
+├── launch/
+├── config/
+├── docs/
 ├── logs/
-│
-├── main.cpp
-├── README.md
-└── .gitignore
-```
+├── tests/
+├── src/
+    │
+    ├── framework/
+    ├── battery/
+    ├── logger/
+    ├── display/
+    └── utils/
+
+
+---
+
+## Battery Features
+
+- Battery percentage simulation
+- Voltage simulation
+- Current simulation
+- Power calculation
+- Temperature simulation
+- Battery health monitoring
+- Terminal battery display
+- Validation logger
+- ROS2 BatteryState publisher
+
+---
+
+## ROS2 Topic
+
+
+/battery_state
+
+
+Message Type
+
+
+sensor_msgs/msg/BatteryState
+
+
+---
+
+## Configuration
+
+Configuration files are located inside
+
+
+config/
+
+
+Example
+
+
+battery.yaml
+simulator.yaml
+
+
+---
+
+## Launch
+
+
+ros2 launch s24_zero_sensor_simulator battery.launch.py
+
+
+---
 
 ## Build
 
-```bash
-g++ main.cpp battery/BatterySimulator.cpp logger/Logger.cpp -o battery_sim
-```
+
+colcon build
+
+source install/setup.bash
+
+
+---
 
 ## Run
 
-```bash
-./battery_sim
-```
 
-## Example Output
+ros2 run s24_zero_sensor_simulator battery_node
 
-```text
-[2026-07-13 19:52:58] Battery : Battery initialized successfully.
-Battery initialized successfully.
-Voltage: 12.6 V
-State of Charge: 100 %
-Temperature: 25 C
-```
 
-## Repository Guidelines
+or
 
-* Follow the established project structure.
-* Keep modules independent and reusable.
-* Write clear and maintainable C++ code.
-* Test changes before creating a pull request.
-* Use descriptive commit messages following the project conventions.
 
-## License
+ros2 launch s24_zero_sensor_simulator battery.launch.py
 
-This repository is maintained as part of the Spaceborn autonomous systems development program. Licensing and distribution are governed by the project maintainers.
 
+---
+
+## Output
+
+========================================
+S24 ZERO SENSOR SIMULATOR
+
+🔋 BATTERY
+
+[████████████████████]
+
+SOC : 100 %
+
+Voltage : 16.8 V
+
+Current : 0.5 A
+
+Temperature : 25 °C
+
+Status : FULL
+
+
+---
+
+## Authors
+
+Chetanya Barodiya
+
+Spaceborn Robotics Internship
+
+S24 Zero Sensor Simulator

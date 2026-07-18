@@ -1,0 +1,53 @@
+battery:
+
+  name: "LiPo Battery"
+
+  chemistry: "LiPo"
+
+  capacity_ah: 5.0
+
+  initial_soc: 100.0
+
+  voltage:
+
+    max: 16.8
+
+    min: 13.0
+
+  current:
+
+    idle: 0.5
+
+    moving: 2.5
+
+  temperature:
+
+    initial: 25.0
+
+    maximum: 60.0
+
+  discharge:
+
+    idle_rate: 0.5
+
+    moving_rate: 2.0
+
+  warning:
+
+    low: 20.0
+
+    critical: 5.0
+
+display:
+
+  refresh_rate: 1.0
+
+logging:
+
+  file: "logs/battery.log"
+
+ros:
+
+  topic: "/battery_state"
+
+  publish_rate: 1.0

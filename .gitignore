@@ -1,19 +1,12 @@
-# Compiled executable
-battery_sim
+__pycache__/
+*.pyc
+*.pyo
 
-# Build directories
 build/
-cmake-build-*/
+install/
+log/
 
-# Object files
-*.o
+logs/*.log
 
-# Executables
-*.out
-
-# Log files
-*.log
-
-# IDE files
+.venv/
 .vscode/
-.idea/

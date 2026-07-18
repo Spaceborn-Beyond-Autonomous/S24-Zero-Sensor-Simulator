@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<package format="3">
+
+  <name>s24_zero_sensor_simulator</name>
+
+  <version>0.0.1</version>
+
+  <description>
+    S24 Zero Sensor Simulator for ROS 2.
+  </description>
+
+  <maintainer email="your_email@example.com">
+    Chetanya Barodiya
+  </maintainer>
+
+  <license>MIT</license>
+
+  <!-- Build Tool -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime Dependencies -->
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>launch</depend>
+  <depend>launch_ros</depend>
+  <depend>python3-yaml</depend>
+
+  <!-- Testing -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>
