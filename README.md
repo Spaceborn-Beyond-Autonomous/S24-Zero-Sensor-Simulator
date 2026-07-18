@@ -143,11 +143,3 @@ Status : FULL
 
 
 ---
-
-## Authors
-
-Chetanya Barodiya
-
-Spaceborn Robotics Internship
-
-S24 Zero Sensor Simulator
