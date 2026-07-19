@@ -24,61 +24,72 @@ This project is part of the Spaceborn Autonomous Systems software stack.
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
-
+```text
 S24-Zero-Sensor-Simulator/
-│                       
+├── config/
+│   ├── battery.yaml
+│   └── simulator.yaml
+│
+├── docs/
+│   ├── architecture.md
+│   ├── battery.md
+│   └── logger.md
+│
+├── launch/
+│   ├── __init__.py
+│   └── battery_launch.py
+│
+├── resource/
+│   └── s24_zero_sensor_simulator
+│
+├── src/
+│   └── s24_zero_sensor_simulator/
+│       ├── __init__.py
+│       │
+│       ├── battery/
+│       │   ├── __init__.py
+│       │   ├── battery_model.py
+│       │   ├── battery_node.py
+│       │   └── battery_state.py
+│       │
+│       ├── display/
+│       │   ├── __init__.py
+│       │   └── display.py
+│       │
+│       ├── framework/
+│       │   ├── __init__.py
+│       │   ├── hal_wrapper.py
+│       │   ├── sensor_manager.py
+│       │   ├── simulator_manager.py
+│       │   └── master_toggle.py
+│       │
+│       ├── logger/
+│       │   ├── __init__.py
+│       │   └── validation_logger.py
+│       │
+│       └── utils/
+│           ├── __init__.py
+│           ├── config_loader.py
+│           ├── constants.py
+│           ├── math_utils.py
+│           └── time_utils.py
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_battery.py
+│   ├── test_display.py
+│   └── test_logger.py
+│
 ├── CMakeLists.txt
-├── config
-│   ├── battery.yaml
-│   └── simulator.yaml
-├── docs
-│   ├── architecture.md
-│   ├── battery.md
-│   └── logger.md
-├── launch
-│   └── battery.launch.py
-├── requirements.txt
-├── resource
-│   └── s24_zero_sensor_simulator
-├── src
-│   └── s24_zero_sensor_simulator
-│       ├── __init__.py
-│       ├── battery
-│       │   ├──__init__.py
-│       │   ├── battery_model.py
-│       │   ├── battery_node.py
-│       │   └── battery_state.py  
-│       ├── display
-│       │   ├──__init__.py
-│       │   └── display.py
-│       │   
-│       ├── framework
-│       │   ├── __init__.py
-│       │   ├── hal_wrapper.py
-│       │   ├── sensor_manager.py
-│       │   ├── simulator_manager.py
-│       │   └── master_toggle.py
-│       ├── logger
-│       │   ├── __init__.py
-│       │   └── validation_logger.py      
-│       └── utils
-│           ├── __init__.py
-│           ├── config_loader.py
-│           ├── constants.py
-│           ├── math_utils.py         
-│           └── time_utils.py
-├── setup.cfg
-├── setup.py
-├── LICENSE.md
 ├── package.xml
-├── README.md
-└── tests
-    ├── __init__.py
-    ├── test_battery.py
-    ├── test_display.py
-    └── test_logger.py
+├── setup.py
+├── setup.cfg
+├── requirements.txt
+├── LICENSE.md
+└── README.md
+```
 
 
 
