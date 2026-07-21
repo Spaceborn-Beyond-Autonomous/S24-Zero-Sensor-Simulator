@@ -24,6 +24,7 @@ This project is part of the Spaceborn Autonomous Systems software stack.
 
 ---
 
+
 ## 📂 Project Structure
 
 ```text
@@ -91,9 +92,8 @@ S24-Zero-Sensor-Simulator/
 └── README.md
 ```
 
-
-
 ---
+
 
 ## Battery Features
 
