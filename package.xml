@@ -1,38 +1,46 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd"
-            schematypens="http://purl.oclc.org/dsdl/schematron"?>
+schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <package format="3">
 
   <name>s24_zero_sensor_simulator</name>
 
-  <version>0.0.1</version>
+  <version>0.1.0</version>
 
   <description>
-    S24 Zero Sensor Simulator for ROS 2.
+    Zero Sensor Simulator for Robotics using ROS2.
+    Includes Battery, Camera, LiDAR, IMU, GPS,
+    Validation, Logger and Simulator Framework.
   </description>
 
-  <maintainer email="your_email@example.com">
+  <maintainer email="chetanyabarodiya@gmail.com">
     Chetanya Barodiya
   </maintainer>
 
   <license>MIT</license>
 
-  <!-- Build Tool -->
+  <!-- Build -->
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>ament_python</buildtool_depend>
 
-  <!-- Runtime Dependencies -->
+  <!-- ROS2 -->
   <depend>rclpy</depend>
-  <depend>sensor_msgs</depend>
   <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+
+  <!-- Launch -->
   <depend>launch</depend>
   <depend>launch_ros</depend>
-  <depend>python3-yaml</depend>
+
+  <!-- Python -->
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
 
   <!-- Testing -->
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+  <test_depend>pytest</test_depend>
 
   <export>
     <build_type>ament_python</build_type>

@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
+
 project(s24_zero_sensor_simulator)
 
 find_package(ament_cmake REQUIRED)

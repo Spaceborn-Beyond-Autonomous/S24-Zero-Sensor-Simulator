@@ -1,13 +1,13 @@
 """
-Display Package
+Simulator Package
 
 S24 Zero Sensor Simulator
 
 Author: Chetanya Barodiya
 """
 
-from .display import Display
+from .simulator import Simulator
 
 __all__ = [
-    "Display",
+    "Simulator",
 ]

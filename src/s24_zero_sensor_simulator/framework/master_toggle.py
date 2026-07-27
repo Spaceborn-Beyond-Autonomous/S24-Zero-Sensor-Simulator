@@ -14,16 +14,42 @@ class MasterToggle:
 
     def __init__(self):
 
-        self.enabled = True
+        self.modules = {}
 
-    def enable(self):
+    def enable(self, name):
 
-        self.enabled = True
+        self.modules[name] = True
 
-    def disable(self):
+    def disable(self, name):
 
-        self.enabled = False
+        self.modules[name] = False
 
-    def status(self):
+    def toggle(self, name):
 
-        return self.enabled
+        if name not in self.modules:
+
+            self.modules[name] = True
+
+        else:
+
+            self.modules[name] = not self.modules[name]
+
+    def is_enabled(self, name):
+
+        return self.modules.get(name, False)
+
+    def enable_all(self):
+
+        for name in self.modules:
+
+            self.modules[name] = True
+
+    def disable_all(self):
+
+        for name in self.modules:
+
+            self.modules[name] = False
+
+    def get_status(self):
+
+        return self.modules

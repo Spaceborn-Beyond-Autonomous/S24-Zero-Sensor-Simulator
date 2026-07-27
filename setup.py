@@ -24,29 +24,33 @@ setup(
     entry_points={
         "console_scripts": [
             "battery_node=s24_zero_sensor_simulator.battery.battery_node:main",
+            "camera_node=s24_zero_sensor_simulator.camera.camera_node:main",
+            "lidar_node=s24_zero_sensor_simulator.lidar.lidar_node:main",
+            "simulator_node=s24_zero_sensor_simulator.simulator.simulator_node:main",
+            'imu_node = s24_zero_sensor_simulator.imu.imu_node:main',
+            'gps_node = s24_zero_sensor_simulator.gps.gps_node:main',
         ],
     },
-    
     data_files=[
-    (
-        'share/ament_index/resource_index/packages',
-        ['resource/s24_zero_sensor_simulator'],
-    ),
-    (
-        'share/' + package_name,
-        ['package.xml'],
-    ),
-    (
-        os.path.join('share', package_name, 'launch'),
-        glob('launch/*.py'),
-    ),
-    (
-        os.path.join('share', package_name, 'config'),
-        glob('config/*.yaml'),
-    ),
-    (
-        os.path.join('share', package_name, 'docs'),
-        glob('docs/*.md'),
-    ),
+        (
+            "share/ament_index/resource_index/packages",
+            ["resource/s24_zero_sensor_simulator"],
+        ),
+        (
+            "share/" + package_name,
+            ["package.xml"],
+        ),
+        (
+            os.path.join("share", package_name, "launch"),
+            glob("launch/*.py"),
+        ),
+        (
+            os.path.join("share", package_name, "config"),
+            glob("config/*.yaml"),
+        ),
+        (
+            os.path.join("share", package_name, "docs"),
+            glob("docs/*.md"),
+        ),
     ],
 )

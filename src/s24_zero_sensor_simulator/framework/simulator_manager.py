@@ -21,6 +21,20 @@ class SimulatorManager:
 
         self.modules.append(module)
 
+    def unregister_module(self, module):
+
+        if module in self.modules:
+
+            self.modules.remove(module)
+
+    def get_modules(self):
+
+        return self.modules
+
+    def total_modules(self):
+
+        return len(self.modules)
+
     def start(self):
 
         print("[SimulatorManager] Starting simulator...")
@@ -28,6 +42,7 @@ class SimulatorManager:
         for module in self.modules:
 
             if hasattr(module, "start"):
+
                 module.start()
 
     def stop(self):
@@ -37,4 +52,11 @@ class SimulatorManager:
         for module in self.modules:
 
             if hasattr(module, "stop"):
+
                 module.stop()
+
+    def restart(self):
+
+        self.stop()
+
+        self.start()

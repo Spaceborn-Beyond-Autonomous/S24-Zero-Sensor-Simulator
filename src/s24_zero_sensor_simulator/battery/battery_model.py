@@ -67,8 +67,16 @@ class BatteryModel:
         self.critical_warning = config["warning"]["critical"]
 
         # Runtime Variables
-        self.power = 0.0
-        self.eta = 0.0
+        self.power = power_consumption(
+            self.voltage,
+            self.current
+        )
+
+        self.eta = estimate_eta(
+            self.soc,
+            self.idle_rate
+        )
+
         self.status = battery_status(self.soc)
 
         self.is_robot_moving = False
@@ -90,7 +98,11 @@ class BatteryModel:
 
         # Update SOC
         self.soc -= discharge
-        self.soc = clamp(self.soc, 0.0, 100.0)
+        self.soc = clamp(
+            self.soc,
+            0.0,
+            100.0
+        )
 
         # Update Voltage
         self.voltage = (
@@ -113,7 +125,9 @@ class BatteryModel:
         )
 
         # Update Status
-        self.status = battery_status(self.soc)
+        self.status = battery_status(
+            self.soc
+        )
 
         # Update Temperature
         if self.is_robot_moving:
@@ -121,41 +135,59 @@ class BatteryModel:
         else:
             self.temperature += 0.01
 
-        if self.temperature > self.max_temperature:
-            self.temperature = self.max_temperature
+        self.temperature = clamp(
+            self.temperature,
+            0.0,
+            self.max_temperature
+        )
 
     def robot_started(self):
         """
         Robot starts moving.
         """
+
         self.is_robot_moving = True
 
     def robot_stopped(self):
         """
         Robot stops moving.
         """
+
         self.is_robot_moving = False
 
     def shutdown(self):
         """
         Shutdown battery.
         """
+
         self.current = 0.0
         self.power = 0.0
 
     def get_state(self):
         """
-        Return battery state.
+        Update battery and return latest state.
         """
 
+        self.update()
+
         return {
+
             "name": self.name,
+
             "chemistry": self.chemistry,
+
             "soc": self.soc,
+
             "voltage": self.voltage,
+
             "current": self.current,
+
             "power": self.power,
+
             "temperature": self.temperature,
+
             "eta": self.eta,
+
             "status": self.status,
+
         }

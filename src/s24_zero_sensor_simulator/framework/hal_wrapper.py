@@ -6,10 +6,7 @@ Author: Chetanya Barodiya
 Project: S24 Zero Sensor Simulator
 
 Description:
-Hardware Abstraction Layer wrapper.
-
-Acts as an interface between Mission Software
-and the Zero Sensor Simulator.
+Hardware Abstraction Layer for accessing simulator modules.
 """
 
 
@@ -17,20 +14,24 @@ class HALWrapper:
 
     def __init__(self):
 
-        self.connected = False
+        self.devices = {}
 
-    def connect(self):
+    def register_device(self, name, device):
 
-        self.connected = True
+        self.devices[name] = device
 
-        print("[HAL] Connected")
+    def get_device(self, name):
 
-    def disconnect(self):
+        return self.devices.get(name)
 
-        self.connected = False
+    def device_exists(self, name):
 
-        print("[HAL] Disconnected")
+        return name in self.devices
 
-    def is_connected(self):
+    def get_all_devices(self):
 
-        return self.connected
+        return self.devices
+
+    def clear(self):
+
+        self.devices.clear()

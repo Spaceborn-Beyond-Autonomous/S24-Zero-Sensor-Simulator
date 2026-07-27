@@ -46,7 +46,7 @@ CRITICAL = "CRITICAL"
 
 LOG_FOLDER = "logs"
 
-LOG_FILE = "battery.log"
+LOG_FILE = "simulator.log"
 
 # -----------------------------
 # ROS2
