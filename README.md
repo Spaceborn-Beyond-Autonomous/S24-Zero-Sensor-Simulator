@@ -370,7 +370,7 @@ This project is licensed under the **MIT License**.
 
 <div align="center">
 
-Developed by **Chetanya Barodiya**
+Developed by **zero sensor simulator team**
 
 **Spaceborn Autonomous Systems**
 
